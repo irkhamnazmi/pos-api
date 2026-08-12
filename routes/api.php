@@ -5,6 +5,8 @@ use App\Http\Controllers\Api\V1\ProductCategoryController;
 use App\Http\Controllers\Api\V1\ProductCategoryImageController;
 use App\Http\Controllers\Api\V1\ProductController;
 use App\Http\Controllers\Api\V1\ProductImageController;
+use App\Http\Controllers\Api\V1\CustomerController;
+use App\Http\Controllers\Api\V1\CustomerImageController;
 use Illuminate\Support\Facades\Route;
 
 Route::prefix('v1')->group(function () {
@@ -21,5 +23,9 @@ Route::prefix('v1')->group(function () {
         Route::get('products/options', [ProductController::class, 'options']);
         Route::post('products/{id}/image', [ProductImageController::class, 'store']);
         Route::apiResource('products', ProductController::class);
+
+        Route::get('customers/options', [CustomerController::class, 'options']);
+        Route::post('customers/{id}/image', [CustomerImageController::class, 'store']);
+        Route::apiResource('customers', CustomerController::class);
     });
 });
