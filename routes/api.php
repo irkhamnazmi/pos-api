@@ -7,6 +7,7 @@ use App\Http\Controllers\Api\V1\ProductController;
 use App\Http\Controllers\Api\V1\ProductImageController;
 use App\Http\Controllers\Api\V1\CustomerController;
 use App\Http\Controllers\Api\V1\CustomerImageController;
+use App\Http\Controllers\Api\V1\TransactionController;
 use Illuminate\Support\Facades\Route;
 
 Route::prefix('v1')->group(function () {
@@ -27,5 +28,7 @@ Route::prefix('v1')->group(function () {
         Route::get('customers/options', [CustomerController::class, 'options']);
         Route::post('customers/{id}/image', [CustomerImageController::class, 'store']);
         Route::apiResource('customers', CustomerController::class);
+
+        Route::apiResource('transactions', TransactionController::class)->only(['index', 'store', 'show']);
     });
 });

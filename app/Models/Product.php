@@ -25,6 +25,7 @@ class Product extends Model
         return $this->belongsTo(ProductCategory::class, 'product_category_id');
     }
 
+
     public function scopeSearch($query, $search)
     {
         return $query->when($search, function ($query, $search) {
